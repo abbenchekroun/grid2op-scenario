@@ -1,1 +1,3 @@
-../l2rpn_idf_2023_v0/params_loss.json
+{
+    "method": "simple"
+}

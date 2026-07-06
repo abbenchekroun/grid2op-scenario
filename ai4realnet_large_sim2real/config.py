@@ -1,5 +1,5 @@
 from grid2op.Action import PlayableAction, PowerlineSetAction
-from grid2op.Observation import CompleteObservation
+from grid2op.Observation import CompleteObservation, NoisyObservation
 from grid2op.Reward import RedispReward, AlertReward
 from grid2op.Rules import RulesByArea
 from grid2op.Chronics import Multifolder
