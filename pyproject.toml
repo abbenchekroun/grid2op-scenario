@@ -8,6 +8,7 @@ dependencies = [
     "grid2op[chronix2grid]==1.10.5",
     "lightsim2grid==0.10.3",
     "tqdm==4.67.3",
+    "setuptools<70",
     # transitive dependencies from grid2op
     "numpy<2",
     "pandas>=1.0.3,<3",
