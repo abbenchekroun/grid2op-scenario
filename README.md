@@ -46,7 +46,26 @@ The derivation from large to small grid uses a mapping methodology where boundar
 👉 **Read [METHODOLOGY.md](METHODOLOGY.md) for full technical details.**
 
 ### Environment Descriptions
-- **ai4realnet_large**: 118 substations (based on L2RPN IDF 2023).
-- **ai4realnet_small**: 36 substations (subgrid of **ai4realnet_large**).
+- `ai4realnet_large`: 118 substations (based on L2RPN IDF 2023).
+- `ai4realnet_small`: 36 substations (subgrid of `ai4realnet_large`).
 
-*Note that the **ai4realnet_small** environment was previously based on **l2rpn_icaps_2021**. Both environments are now based on **l2rpn_idf_2023** (see https://grid2op.readthedocs.io/en/latest/available_envs.html for more details).*
+*Note that the `ai4realnet_small` environment was previously based on `l2rpn_icaps_2021`. Both environments are now based on `l2rpn_idf_2023` (see https://grid2op.readthedocs.io/en/latest/available_envs.html for more details).*
+
+---
+
+## ⚙️ Advanced Usage
+
+The workflow can also be used to generate chronics for custom environments following the same structure.
+
+For example, `ai4realnet_large_shift` is a shifted environment with modified generator characteristics (see `prods_characs.csv`).
+
+**1. Generate chronics for a custom large environment**:
+```bash
+python3 step1_generate_large.py --env ai4realnet_large_shift --weeks 1 --scenarios 1
+```
+**2. Derive small grid chronics from the custom large environment**:
+```bash
+python3 step2_generate_small.py --large_env ai4realnet_large_shift --small_env ai4realnet_small_shift
+```
+
+*Note that the custom environments must be created before using the scripts, which only generate the respective chronics.*
